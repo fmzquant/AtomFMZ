@@ -1,5 +1,5 @@
 {
-  "name": "botvs-atom",
+  "name": "AtomBotVS",
   "version": "0.0.1",
   "description": "Atom plugin for BotVS",
   "main": "index.js",
