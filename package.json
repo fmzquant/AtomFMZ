@@ -4,13 +4,6 @@
   "description": "Atom plugin for BotVS",
   "main": "index.js",
   "author": "Zero",
-  "license": "ISC",
-  "dependencies": {
-    "crc": "^3.4.0",
-    "glob": "^6.0.3",
-    "ws": "^1.0.0",
-    "xtend": "^4.0.1"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/botvs/AtomBotVS.git"
