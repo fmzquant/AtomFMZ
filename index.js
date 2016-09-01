@@ -8,17 +8,17 @@
         var fs = require("fs");
         var path = require("path");
         var content = fs.readFileSync(filePath, "utf-8");
-        var re = /\/\/\s*botvs@([a-zA-Z0-9]{32})/ig;
+        var re = /(\/\/|#)\s*botvs@([a-zA-Z0-9]{32})/ig;
         var m = re.exec(content);
         if (m && m.length > 0) {
-            var token = m[1];
+            var token = m[2];
             var https = require('https');
             var querystring = require("querystring");
             var post_data = querystring.stringify({
                 'token': token,
                 'method': 'push',
-                'content': content,
-                'version': '0.0.1',
+                'content': content.replace(m[0],''),
+                'version': '0.0.2',
                 'client': 'Atom'
             });
             var options = {
