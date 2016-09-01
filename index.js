@@ -2,7 +2,8 @@
         var editor = atom.workspace.getActiveTextEditor();
         var filePath = editor.getPath();
         var arr = filePath.split(".");
-        if (arr[arr.length - 1] !== "js") {
+        var suffix = arr[arr.length - 1];
+        if (suffix !== "js" && suffix !== "py") {
             return;
         }
         var fs = require("fs");
