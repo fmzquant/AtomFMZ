@@ -3,7 +3,7 @@
         var filePath = editor.getPath();
         var arr = filePath.split(".");
         var suffix = arr[arr.length - 1];
-        if (suffix !== "js" && suffix !== "py") {
+        if (suffix !== "js" && suffix !== "py" && suffix !== "cpp") {
             return;
         }
         var fs = require("fs");
