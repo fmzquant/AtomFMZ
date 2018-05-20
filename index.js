@@ -42,10 +42,10 @@
                         if (obj.code === 406) {
                             errMsg = 'BotVS plugin for sublime need update ! \n\nhttp://www.botvs.com';
                         }
-                        alert(errMsg);
+                        atom.notifications.addError(errMsg);
                     } else {
                         var msg = 'Hi ' + obj['user'] + ", sync success !\n\n[" + fileName + "] saved to [" + obj['name'] + "]"
-                        alert(msg);
+                        atom.notifications.addSuccess(msg);
                     }
                 });
                 res.on("end", function() {
@@ -55,11 +55,11 @@
                     clearTimeout(timeoutEvent);
                 });
                 timeoutEvent = setTimeout(function() {
-                    alert('sync timeout');
+                    atom.notifications.addError('sync timeout');
                 }, 20000);
             });
             req.on('error', function(err) {
-                alert(err);
+                atom.notifications.addError(err);
             });
             req.write(post_data + "\n");
             req.end();
