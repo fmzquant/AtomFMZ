@@ -9,7 +9,7 @@
         var fs = require("fs");
         var path = require("path");
         var content = fs.readFileSync(filePath, "utf-8");
-        var re = /(\/\/|#)\s*botvs@([a-zA-Z0-9]{32})/ig;
+        var re = /(\/\/|#)\s*fmz@([a-zA-Z0-9]{32})/ig;
         var m = re.exec(content);
         if (m && m.length > 0) {
             var token = m[2];
@@ -23,7 +23,7 @@
                 'client': 'Atom'
             });
             var options = {
-                hostname: 'www.botvs.com',
+                hostname: 'www.fmz.com',
                 port: 443,
                 path: '/rsync',
                 method: 'POST',
@@ -38,9 +38,9 @@
                 res.on('data', function(buffer) {
                     var obj = JSON.parse(buffer);
                     if (obj.code > 400) {
-                        var errMsg = "BotVS sync [" + fileName + " ] failed, errCode: " + obj.code + "\n\nMay be the token is not correct !";
+                        var errMsg = "FMZ sync [" + fileName + " ] failed, errCode: " + obj.code + "\n\nMay be the token is not correct !";
                         if (obj.code === 406) {
-                            errMsg = 'BotVS plugin for sublime need update ! \n\nhttp://www.botvs.com';
+                            errMsg = 'FMZ plugin for sublime need update ! \n\nhttp://www.fmz.com';
                         }
                         atom.notifications.addError(errMsg);
                     } else {
@@ -77,3 +77,4 @@
             });
         }
     };
+
