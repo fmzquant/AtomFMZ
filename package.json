@@ -1,12 +1,12 @@
 {
-  "name": "AtomBotVS",
+  "name": "AtomFMZ",
   "version": "0.0.1",
-  "description": "Atom plugin for BotVS",
+  "description": "Atom plugin for FMZ",
   "main": "index.js",
   "author": "Zero",
   "repository": {
     "type": "git",
-    "url": "https://github.com/botvs/AtomBotVS.git"
+    "url": "https://github.com/fzmquant/AtomFMZ.git"
   },
-  "homepage": "http://www.botvs.com"
+  "homepage": "http://www.fmz.com"
 }
