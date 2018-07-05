@@ -6,5 +6,5 @@ Atom plugin for FMZ
 # Install
 
 ```
-apm install https://github.com/fmz/AtomFMZ
+apm install https://github.com/fmzquant/AtomFMZ
 ```
