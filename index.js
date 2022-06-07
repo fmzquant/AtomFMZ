@@ -3,7 +3,7 @@
         var filePath = editor.getPath();
         var arr = filePath.split(".");
         var suffix = arr[arr.length - 1];
-        if (suffix !== "js" && suffix !== "py" && suffix !== "cpp" && suffix !== "txt") {
+        if (suffix !== "js" && suffix !== "py" && suffix !== "cpp" && suffix !== "txt" && suffix !== "pine" && suffix !== "tv") {
             return;
         }
         var fs = require("fs");
@@ -23,7 +23,7 @@
                 'client': 'Atom'
             });
             var options = {
-                hostname: 'www.fmz.com',
+                hostname: 'www.fmz.' + (token[0] == 'n' ? 'cn' : 'com'),
                 port: 443,
                 path: '/rsync',
                 method: 'POST',
@@ -40,7 +40,7 @@
                     if (obj.code > 400) {
                         var errMsg = "FMZ sync [" + fileName + " ] failed, errCode: " + obj.code + "\n\nMay be the token is not correct !";
                         if (obj.code === 406) {
-                            errMsg = 'FMZ plugin for sublime need update ! \n\nhttp://www.fmz.com';
+                            errMsg = 'FMZ plugin for sublime need update !';
                         }
                         atom.notifications.addError(errMsg);
                     } else {
