@@ -23,7 +23,7 @@
                 'client': 'Atom'
             });
             var options = {
-                hostname: 'www.fmz.' + (token[0] == 'n' ? 'cn' : 'com'),
+                hostname: token[0] == 'n' ? 'www.youquant.com' : 'www.fmz.com',
                 port: 443,
                 path: '/rsync',
                 method: 'POST',
@@ -38,9 +38,9 @@
                 res.on('data', function(buffer) {
                     var obj = JSON.parse(buffer);
                     if (obj.code > 400) {
-                        var errMsg = "FMZ sync [" + fileName + " ] failed, errCode: " + obj.code + "\n\nMay be the token is not correct !";
+                        var errMsg = "sync [" + fileName + " ] failed, errCode: " + obj.code + "\n\nMay be the token is not correct !";
                         if (obj.code === 406) {
-                            errMsg = 'FMZ plugin for sublime need update !';
+                            errMsg = 'plugin for sublime need update !';
                         }
                         atom.notifications.addError(errMsg);
                     } else {
